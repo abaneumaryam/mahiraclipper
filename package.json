@@ -4,9 +4,51 @@
   "description": "AutoClipper Ceramah & Dakwah Islam",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
   },
   "devDependencies": {
-    "electron": "^28.0.0"
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.mahira.clipper",
+    "productName": "MahiraClipper",
+    "win": {
+      "target": "nsis",
+      "icon": "renderer/assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "ads.json",
+      "renderer/**/*",
+      "pipeline/**/*",
+      "package.json"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "abaneumaryam",
+      "repo": "mahiraclipper"
+    }
   }
 }
+```
+
+---
+
+**Step 3 — Push ke GitHub:**
+```
+git add .
+git commit -m "add build workflow"
+git push
+```
+
+**Step 4 — Rilis `.exe` pertama:**
+```
+git tag v2.0.0
+git push origin v2.0.0

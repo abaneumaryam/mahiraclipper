@@ -1,0 +1,47 @@
+name: Build & Release MahiraClipper
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Build .exe
+        run: npm run dist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload ke GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "MahiraClipper ${{ github.ref_name }}"
+          body: |
+            ## MahiraClipper ${{ github.ref_name }}
+
+            ### ⬇️ Download
+            Klik file `.exe` di bawah untuk install
+
+            ### Cara Install
+            1. Download `MahiraClipper-Setup-*.exe`
+            2. Jalankan installer
+            3. Masukkan Groq API key di Settings
+          files: dist/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
