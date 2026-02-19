@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MahiraClipper</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Splash Screen -->
+<div id="splash-screen">
+  <div class="splash-arabic">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+  <div class="splash-logo">
+    <div class="splash-logo-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#4ade80"/>
+        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="splash-app-name">Mahira<span>Clipper</span></div>
+  </div>
+  <div class="splash-tagline">AUTO DAKWAH CLIPPER · WHISPER + GROQ AI</div>
+  <div class="splash-loading">
+    <div class="splash-dot"></div>
+    <div class="splash-dot"></div>
+    <div class="splash-dot"></div>
+  </div>
+  <!-- Ad di splash -->
+  <div class="splash-ad-area">
+    <div class="ad-container ad-hidden" id="ad-banner-splash"></div>
+  </div>
+</div>
+
+<!-- Titlebar -->
+<div class="titlebar">
+  <div class="titlebar-left">
+    <div class="app-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#2D6B42"/>
+        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2D6B42" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="app-name">Mahira<span>Clipper</span></span>
+  </div>
+  <div class="titlebar-drag"></div>
+  <div class="titlebar-right">
+    <button class="tc" id="tc-min">─</button>
+    <button class="tc" id="tc-max">□</button>
+    <button class="tc tc-red" id="tc-cls">✕</button>
+  </div>
+</div>
+
+<div class="shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <button class="nav active" data-page="home">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Beranda</span>
+    </button>
+    <button class="nav" data-page="history">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Riwayat</span>
+    </button>
+    <button class="nav" data-page="styles">
+      <svg viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+      <span>Style</span>
+    </button>
+    <div class="sidebar-spacer"></div>
+    <button class="nav" data-page="about">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <span>Tentang</span>
+    </button>
+    <button class="nav" data-page="settings">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      <span>Setting</span>
+    </button>
+  </nav>
+
+  <main class="content">
+
+    <!-- ══ HOME ══ -->
+    <section class="page active" id="page-home">
+
+      <div class="greeting">
+        <div class="greeting-arabic">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+        <h1 class="greeting-title">Assalamu'alaikum! 👋</h1>
+        <p class="greeting-sub">Paste link ceramah atau pilih file video. Mahira akan otomatis temukan momen terbaik & buat klip siap upload.</p>
+      </div>
+
+      <div class="input-card">
+
+        <!-- Source type -->
+        <div class="platform-pills">
+          <button class="pill active" data-src="url">🔗 Link</button>
+          <button class="pill" data-src="file">📁 File Lokal</button>
+        </div>
+
+        <!-- Nama Project -->
+        <div class="project-name-row">
+          <div class="proj-name-icon">📁</div>
+          <input id="inp-project-name" class="proj-name-input" type="text" placeholder="Nama project (opsional — default: nama video)">
+          <button class="proj-name-clear hidden" id="btn-clear-name" title="Reset">✕</button>
+        </div>
+
+        <!-- URL -->
+        <div id="wrap-url">
+          <div class="url-input-row">
+            <div class="url-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <input id="inp-url" class="url-input" type="text" placeholder="Paste link YouTube, Instagram, Facebook, TikTok...">
+            <button class="paste-btn" id="btn-paste" title="Paste dari clipboard">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+            </button>
+          </div>
+          <div class="platform-detect" id="platform-detect"></div>
+        </div>
+
+        <!-- File -->
+        <div class="hidden" id="wrap-file">
+          <div class="drop-zone" id="drop-zone">
+            <div class="drop-icon">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <p class="drop-title">Drag video ke sini</p>
+            <p class="drop-sub">atau</p>
+            <button class="btn-outline" id="btn-browse">Pilih File</button>
+            <p class="drop-types">MP4 · MKV · AVI · MOV · WEBM</p>
+          </div>
+          <div class="file-chosen hidden" id="file-chosen">
+            <div class="file-icon">🎬</div>
+            <div class="file-info">
+              <div class="file-name" id="file-name">video.mp4</div>
+              <div class="file-size" id="file-path-display">–</div>
+            </div>
+            <button class="file-clear" id="file-clear">✕</button>
+          </div>
+        </div>
+
+        <!-- ── FORMAT OUTPUT ── -->
+        <div class="settings-divider">📐 Format Video Output</div>
+        <div class="format-grid" id="format-grid">
+          <div class="format-card active" data-format="9:16" data-w="1080" data-h="1920">
+            <div class="format-thumb" style="width:28px;height:50px;"></div>
+            <div class="format-label">9:16</div>
+            <div class="format-size">1080×1920</div>
+          </div>
+          <div class="format-card" data-format="16:9" data-w="1920" data-h="1080">
+            <div class="format-thumb" style="width:54px;height:30px;"></div>
+            <div class="format-label">16:9</div>
+            <div class="format-size">1920×1080</div>
+          </div>
+          <div class="format-card" data-format="1:1" data-w="1080" data-h="1080">
+            <div class="format-thumb" style="width:38px;height:38px;"></div>
+            <div class="format-label">1:1</div>
+            <div class="format-size">1080×1080</div>
+          </div>
+          <div class="format-card" data-format="4:5" data-w="1080" data-h="1350">
+            <div class="format-thumb" style="width:32px;height:40px;"></div>
+            <div class="format-label">4:5</div>
+            <div class="format-size">1080×1350</div>
+          </div>
+        </div>
+
+        <!-- ── CLIP SETTINGS ── -->
+        <div class="settings-divider">⚙️ Pengaturan Klip</div>
+        <div class="settings-row">
+          <div class="setting-chip">
+            <span class="chip-label">Klip</span>
+            <div class="chip-stepper">
+              <button class="step-btn" data-target="val-clips" data-min="1" data-max="15" data-delta="-1">−</button>
+              <span class="step-val" id="val-clips">5</span>
+              <button class="step-btn" data-target="val-clips" data-min="1" data-max="15" data-delta="1">+</button>
+            </div>
+          </div>
+          <div class="setting-chip">
+            <span class="chip-label">Durasi</span>
+            <select class="chip-select" id="sel-duration">
+              <option value="15,60">TikTok (15–60s)</option>
+              <option value="30,90" selected>Reels (30–90s)</option>
+              <option value="60,180">Panjang (1–3 menit)</option>
+            </select>
+          </div>
+          <div class="setting-chip">
+            <span class="chip-label">Style Sub</span>
+            <select class="chip-select" id="sel-style">
+              <option value="">Auto ✨</option>
+            </select>
+          </div>
+          <div class="setting-chip">
+            <span class="chip-label">Ukuran Font</span>
+            <div class="chip-stepper">
+              <button class="step-btn" data-target="val-fontsize" data-min="40" data-max="120" data-delta="-5">−</button>
+              <span class="step-val" id="val-fontsize">0</span>
+              <button class="step-btn" data-target="val-fontsize" data-min="40" data-max="120" data-delta="5">+</button>
+            </div>
+          </div>
+          <div class="setting-chip">
+            <span class="chip-label">Posisi Teks</span>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="vpos" value="top"> Atas</label>
+              <label class="radio-opt"><input type="radio" name="vpos" value="middle"> Tengah</label>
+              <label class="radio-opt"><input type="radio" name="vpos" value="bottom" checked> Bawah</label>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:0.72rem;color:var(--text-3);margin-top:6px;padding:0 2px">
+          💡 Ukuran Font <strong>0</strong> = otomatis sesuai resolusi video
+        </div>
+
+        <!-- ── FOKUS & CROP ── -->
+        <div class="settings-divider">🎯 Fokus & Crop</div>
+        <div class="settings-row">
+          <div class="setting-chip">
+            <span class="chip-label">Crop Otomatis</span>
+            <label class="toggle-sm">
+              <input type="checkbox" id="chk-crop" checked>
+              <span class="tog"></span>
+            </label>
+          </div>
+          <div class="setting-chip" id="chip-focus-mode">
+            <span class="chip-label">Mode Fokus</span>
+            <select class="chip-select" id="sel-crop-mode">
+              <option value="auto">🤖 Auto Detect</option>
+              <option value="face">👤 Face Tracking</option>
+              <option value="center">⬜ Center Crop</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ── STATUS FITUR ── -->
+        <div class="settings-divider">🧠 Fitur Otomatis Aktif</div>
+        <div class="feature-status">
+          <span class="feat-badge on">🎙️ Speech-to-Text Otomatis (Whisper)</span>
+          <span class="feat-badge on">🧠 Deteksi Momen Viral (Groq AI)</span>
+          <span class="feat-badge on">⏱️ Subtitle Word-by-Word Presisi</span>
+          <span class="feat-badge on">✓ Skor & Ranking Klip</span>
+          <span class="feat-badge on" id="badge-face">✓ Face Tracking (MediaPipe)</span>
+        </div>
+        <div style="font-size:0.75rem;color:var(--text-3);margin-top:8px;padding:8px 12px;background:var(--green-light);border-radius:8px;border:1px solid var(--green-soft)">
+          💡 <strong>Tidak perlu transcript manual.</strong> Whisper otomatis ubah suara jadi teks, lalu Groq AI analisis momen terbaik, lalu subtitle di-burn tepat per kata sesuai waktu bicara.
+        </div>
+
+        <button class="btn-process" id="btn-process">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Mulai Proses
+        </button>
+      </div>
+
+      <!-- Process panel -->
+      <div class="process-panel hidden" id="process-panel">
+        <div class="steps-track">
+          <div class="step-item" data-step="download">
+            <div class="step-circle"><span class="step-ico">📥</span></div>
+            <div class="step-body"><div class="step-label">Download</div><div class="step-state">Menunggu</div></div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item" data-step="gemini">
+            <div class="step-circle"><span class="step-ico">🎙️</span></div>
+            <div class="step-body"><div class="step-label">Whisper + Groq</div><div class="step-state">Menunggu</div></div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item" data-step="cut">
+            <div class="step-circle"><span class="step-ico">✂️</span></div>
+            <div class="step-body"><div class="step-label">Potong</div><div class="step-state">Menunggu</div></div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item" data-step="crop">
+            <div class="step-circle"><span class="step-ico">🎯</span></div>
+            <div class="step-body"><div class="step-label">Fokus & Crop</div><div class="step-state">Menunggu</div></div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item" data-step="subtitle">
+            <div class="step-circle"><span class="step-ico">💬</span></div>
+            <div class="step-body"><div class="step-label">Subtitle</div><div class="step-state">Menunggu</div></div>
+          </div>
+        </div>
+
+        <div class="prog-wrap">
+          <div class="prog-bar" id="prog-bar" style="width:0%"></div>
+        </div>
+
+        <div class="log-panel" id="log-panel"></div>
+
+        <div class="clips-preview hidden" id="clips-preview">
+          <div class="clips-header">
+            <div class="clips-title" id="clips-title">Momen Terdeteksi</div>
+            <button class="btn-folder hidden" id="btn-folder">📂 Buka Folder</button>
+          </div>
+          <div class="clips-list" id="clips-list"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══ HISTORY ══ -->
+    <section class="page" id="page-history">
+      <div class="page-head">
+        <h2>Riwayat Project</h2>
+        <div style="display:flex;gap:8px">
+          <button class="btn-outline sm" id="btn-refresh">↻ Refresh</button>
+          <button class="btn-outline sm" id="btn-open-projects-folder">📂 Buka Folder Projects</button>
+        </div>
+      </div>
+      <div class="history-list" id="history-list">
+        <div class="empty-hint">Memuat...</div>
+      </div>
+
+      <!-- Modal detail project -->
+      <div class="modal-backdrop hidden" id="modal-backdrop" onclick="closeModal()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+          <div class="modal-header">
+            <div class="modal-title" id="modal-title">Detail Project</div>
+            <button class="modal-close" onclick="closeModal()">✕</button>
+          </div>
+          <div class="modal-body" id="modal-body"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ STYLES ══ -->
+    <section class="page" id="page-styles">
+      <div class="page-head">
+        <h2>Style Subtitle</h2>
+        <div class="cat-filter" id="cat-filter">
+          <button class="cat-btn active" data-cat="all">Semua</button>
+          <button class="cat-btn" data-cat="knowledge">📚 Ilmu</button>
+          <button class="cat-btn" data-cat="viral_quote">💡 Viral</button>
+          <button class="cat-btn" data-cat="emotional">💚 Emosi</button>
+          <button class="cat-btn" data-cat="quran_hadith">📖 Quran</button>
+          <button class="cat-btn" data-cat="beginner">🌱 Pemula</button>
+        </div>
+      </div>
+      <div class="styles-grid" id="styles-grid">
+        <div class="empty-hint">Pilih kategori untuk lihat style...</div>
+      </div>
+    </section>
+
+    <!-- ══ SETTINGS ══ -->
+    <section class="page" id="page-settings">
+      <div class="page-head"><h2>Pengaturan</h2></div>
+      <div class="settings-body">
+
+        <!-- Groq API Key -->
+        <div class="settings-card">
+          <div class="sc-header">
+            <div class="sc-icon">⚡</div>
+            <div>
+              <div class="sc-title">Groq API Key</div>
+              <div class="sc-sub">Untuk analisis momen viral — 14.400 request/hari GRATIS</div>
+            </div>
+          </div>
+          <div class="field-wrap">
+            <div class="field-row">
+              <input type="password" id="s-groq-key" class="field-input" placeholder="gsk_...">
+              <button class="field-eye" id="s-eye">👁</button>
+            </div>
+            <a class="field-link" href="#" id="s-getkey">Daftar gratis di console.groq.com (pakai akun Google) →</a>
+          </div>
+        </div>
+
+        <!-- Groq Model -->
+        <div class="settings-card">
+          <div class="sc-header">
+            <div class="sc-icon">🧠</div>
+            <div><div class="sc-title">Model Groq (Analisis Momen)</div><div class="sc-sub">70B lebih pintar, 8B lebih cepat</div></div>
+          </div>
+          <select id="s-groq-model" class="field-select">
+            <option value="llama-3.3-70b-versatile">llama-3.3-70b-versatile — Paling Pintar 🏆</option>
+            <option value="llama-3.1-8b-instant">llama-3.1-8b-instant — Super Cepat ⚡</option>
+            <option value="mixtral-8x7b-32768">mixtral-8x7b-32768 — Alternatif</option>
+          </select>
+        </div>
+
+        <!-- Whisper Model -->
+        <div class="settings-card">
+          <div class="sc-header">
+            <div class="sc-icon">🎙️</div>
+            <div><div class="sc-title">Model Whisper (Transkripsi Lokal)</div><div class="sc-sub">Download sekali, jalan offline selamanya</div></div>
+          </div>
+          <select id="s-whisper-model" class="field-select" onchange="updateWhisperInfo(this.value)">
+            <option value="tiny">tiny — 75MB, sangat cepat (kurang akurat)</option>
+            <option value="base">base — 145MB, cepat</option>
+            <option value="small" selected>small — 490MB, cepat & akurat ✅ Rekomendasi</option>
+            <option value="medium">medium — 1.5GB, sangat akurat (untuk ceramah panjang)</option>
+            <option value="turbo">turbo — 1.6GB, cepat & sangat akurat 🆕</option>
+            <option value="large-v3">large-v3 — 3GB, terbaik (butuh RAM 6GB+)</option>
+          </select>
+          <div id="whisper-info" style="margin-top:10px;padding:10px 14px;background:var(--green-light);border-radius:8px;font-size:0.8rem;color:var(--text-2);border:1px solid var(--green-soft)">
+            ✅ <strong>small</strong>: 490MB RAM · Cocok untuk ceramah Indonesia · Download otomatis pertama kali
+          </div>
+          <div style="margin-top:8px">
+            <label style="display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--text-2);cursor:pointer">
+              <input type="checkbox" id="s-whisper-auto" checked style="width:15px;height:15px">
+              Auto-detect bahasa (tidak perlu set manual)
+            </label>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <div class="sc-header">
+            <div class="sc-icon">🎬</div>
+            <div><div class="sc-title">Default Klip</div><div class="sc-sub">Nilai awal saat proses video baru</div></div>
+          </div>
+          <div class="settings-grid">
+            <div class="field-group">
+              <label>Jumlah Klip</label>
+              <input type="number" id="s-clips" class="field-input" min="1" max="15" value="5">
+            </div>
+            <div class="field-group">
+              <label>Min Durasi (detik)</label>
+              <input type="number" id="s-min" class="field-input" min="10" max="120" value="30">
+            </div>
+            <div class="field-group">
+              <label>Max Durasi (detik)</label>
+              <input type="number" id="s-max" class="field-input" min="30" max="180" value="90">
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-save" id="btn-save">💾 Simpan Pengaturan</button>
+        <div class="save-msg" id="save-msg"></div>
+
+        <div class="about-card">
+          <div class="about-logo">MahiraClipper v2</div>
+          <div class="about-ver">Whisper Lokal + Groq AI · Tanpa GPU · Tanpa Rate Limit</div>
+          <div class="about-desc">
+            AutoClipper khusus ceramah & dakwah Islam.<br>
+            Transkripsi offline dengan Faster-Whisper.<br>
+            Deteksi momen viral dengan Groq LLaMA 3.<br>
+            Face tracking dengan MediaPipe (offline, ringan).
+          </div>
+          <div class="about-arabic">جَزَاكَ اللّٰهُ خَيْرًا</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TENTANG ══ -->
+    <section class="page" id="page-about">
+      <div class="page-head"><h2>Tentang MahiraClipper</h2></div>
+      <div class="about-page-body">
+
+        <!-- Hero card -->
+        <div class="about-hero">
+          <div class="about-hero-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#2D6B42"/>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2D6B42" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="about-hero-name">MahiraClipper</div>
+            <div class="about-hero-ver">Versi 2.0 — Whisper + Groq Edition</div>
+          </div>
+          <div class="about-hero-arabic">بِسْمِ اللّٰهِ</div>
+        </div>
+
+        <!-- Deskripsi -->
+        <div class="about-desc-card">
+          <p>AutoClipper khusus konten ceramah & dakwah Islam. Secara otomatis mendeteksi momen terbaik dari video ceramah panjang dan mengubahnya menjadi klip pendek siap upload ke TikTok, Instagram Reels, dan YouTube Shorts.</p>
+          <div class="about-tech-pills">
+            <span class="tech-pill">🎙️ Faster-Whisper (Lokal)</span>
+            <span class="tech-pill">⚡ Groq LLaMA 3.3 70B</span>
+            <span class="tech-pill">🎯 MediaPipe Face Tracking</span>
+            <span class="tech-pill">🎬 FFmpeg</span>
+            <span class="tech-pill">⚛️ Electron</span>
+          </div>
+        </div>
+
+        <!-- Fitur grid -->
+        <div class="about-section-title">✨ Fitur</div>
+        <div class="about-features-grid">
+          <div class="about-feat-card">
+            <div class="feat-icon">🧠</div>
+            <div class="feat-name">Deteksi Momen AI</div>
+            <div class="feat-desc">Groq LLaMA 3.3 70B analisis ceramah dan temukan segmen paling viral & bermanfaat</div>
+          </div>
+          <div class="about-feat-card">
+            <div class="feat-icon">🎙️</div>
+            <div class="feat-name">Transkripsi Offline</div>
+            <div class="feat-desc">Faster-Whisper jalan lokal di CPU, tidak perlu internet, tidak ada batas penggunaan</div>
+          </div>
+          <div class="about-feat-card">
+            <div class="feat-icon">👤</div>
+            <div class="feat-name">Face Tracking</div>
+            <div class="feat-desc">MediaPipe otomatis ikuti wajah penceramah saat crop ke format vertikal</div>
+          </div>
+          <div class="about-feat-card">
+            <div class="feat-icon">💬</div>
+            <div class="feat-name">22 Style Subtitle</div>
+            <div class="feat-desc">Subtitle otomatis dengan berbagai style dari Hormozi bold hingga Arabic elegant</div>
+          </div>
+          <div class="about-feat-card">
+            <div class="feat-icon">📐</div>
+            <div class="feat-name">Multi Format</div>
+            <div class="feat-desc">Export ke 9:16, 16:9, 1:1, 4:5 — semua platform dalam sekali proses</div>
+          </div>
+          <div class="about-feat-card">
+            <div class="feat-icon">🌐</div>
+            <div class="feat-name">Multi Platform</div>
+            <div class="feat-desc">Download dari YouTube, Instagram, Facebook, TikTok, atau gunakan file lokal</div>
+          </div>
+        </div>
+
+        <!-- PRO section -->
+        <div class="about-section-title">⭐ MahiraClipper Pro</div>
+        <div class="pro-card">
+          <div class="pro-header">
+            <div class="pro-badge">PRO</div>
+            <div>
+              <div class="pro-title">Dukung Pengembangan</div>
+              <div class="pro-sub">Akses fitur eksklusif dengan berdonasi</div>
+            </div>
+          </div>
+          <div class="pro-features-list">
+            <div class="pro-feat available">
+              <span class="pro-check">✓</span>
+              <div>
+                <strong>Batch Processing</strong>
+                <span>Proses beberapa video sekaligus secara antrian otomatis</span>
+              </div>
+            </div>
+            <div class="pro-feat available">
+              <span class="pro-check">✓</span>
+              <div>
+                <strong>Auto Upload ke TikTok & YouTube</strong>
+                <span>Klip langsung diupload ke akun terhubung setelah selesai</span>
+              </div>
+            </div>
+            <div class="pro-feat available">
+              <span class="pro-check">✓</span>
+              <div>
+                <strong>Custom Watermark & Branding</strong>
+                <span>Tambah logo/watermark channel secara otomatis ke semua klip</span>
+              </div>
+            </div>
+            <div class="pro-feat available">
+              <span class="pro-check">✓</span>
+              <div>
+                <strong>Terjemahan Otomatis</strong>
+                <span>Subtitle otomatis dalam Bahasa Inggris, Arab, Melayu, dll</span>
+              </div>
+            </div>
+            <div class="pro-feat available">
+              <span class="pro-check">✓</span>
+              <div>
+                <strong>Whisper Large-v3 Prioritas</strong>
+                <span>Model terbesar untuk akurasi transkripsi tertinggi</span>
+              </div>
+            </div>
+            <div class="pro-feat available">
+              <span class="pro-check">✓</span>
+              <div>
+                <strong>Priority Support</strong>
+                <span>Bantuan langsung via WhatsApp/Telegram untuk pengguna Pro</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pro-donate" id="btn-donate">💚 Dukung via Saweria / Trakteer →</button>
+        </div>
+
+        <!-- Info tambahan -->
+        <!-- Ad Banner di Tentang -->
+        <div class="ad-container ad-hidden" id="ad-banner-about"></div>
+
+        <div class="about-footer">
+          <div class="about-footer-arabic">جَزَاكَ اللّٰهُ خَيْرًا</div>
+          <div class="about-footer-text">Semoga bermanfaat untuk dakwah Islam · Made with ❤️ in Indonesia</div>
+          <div class="about-footer-links">
+            <button class="btn-link" id="btn-github">GitHub</button>
+            <span style="color:var(--border-2)">·</span>
+            <button class="btn-link" id="btn-feedback">Kirim Masukan</button>
+            <span style="color:var(--border-2)">·</span>
+            <button class="btn-link" id="btn-report">Laporkan Bug</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Banner Iklan Fixed Bottom (processing & done) -->
+<div class="ad-container ad-hidden" id="ad-banner-fixed"></div>
+
+<!-- Banner Iklan di halaman Tentang (inline) -->
+
+<div class="toast" id="toast"></div>
+<script src="ads.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

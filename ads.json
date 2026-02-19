@@ -1,0 +1,74 @@
+{
+  "_info": "Edit file ini untuk ganti iklan. Tidak perlu coding sama sekali.",
+  "_panduan": {
+    "image": "Ukuran ideal: 728x90px (banner) atau 320x100px. Letakkan gambar di folder renderer/ads/",
+    "url": "Link affiliate Tokopedia/Shopee/dll. Pakai link affiliate kamu sendiri.",
+    "label": "Label kecil di pojok, misal nama toko atau 'Sponsored'",
+    "platforms": "Di mana iklan muncul: splash, processing, done, about (bisa kombinasi)",
+    "active": "true = tampil, false = sembunyikan tanpa hapus"
+  },
+  "settings": {
+    "rotate_interval_sec": 8,
+    "show_after_sec": 3,
+    "min_close_after_sec": 3,
+    "splash_duration_sec": 3
+  },
+  "ads": [
+    {
+      "id": "ad_001",
+      "title": "Buku Islam Terlengkap",
+      "description": "Koleksi buku dakwah, fiqih, dan tafsir pilihan. Gratis ongkir!",
+      "image": "ads/buku-islam.png",
+      "image_fallback_emoji": "📚",
+      "image_fallback_bg": "#E8F4E8",
+      "url": "https://www.tokopedia.com/search?q=buku+islam",
+      "label": "Tokopedia",
+      "label_color": "#00AA5B",
+      "cta": "Lihat Produk →",
+      "platforms": ["splash", "processing", "done", "about"],
+      "active": true
+    },
+    {
+      "id": "ad_002",
+      "title": "Mukena & Sajadah Premium",
+      "description": "Mukena traveling anti kusut, nyaman untuk ibadah sehari-hari",
+      "image": "ads/mukena.png",
+      "image_fallback_emoji": "🕌",
+      "image_fallback_bg": "#EEF4FF",
+      "url": "https://www.tokopedia.com/search?q=mukena+premium",
+      "label": "Tokopedia",
+      "label_color": "#00AA5B",
+      "cta": "Belanja Sekarang →",
+      "platforms": ["processing", "done"],
+      "active": true
+    },
+    {
+      "id": "ad_003",
+      "title": "Hosting Terpercaya untuk Website Dakwah",
+      "description": "Mulai dari Rp 10.000/bln. Cocok untuk website masjid & pesantren",
+      "image": "ads/hosting.png",
+      "image_fallback_emoji": "🌐",
+      "image_fallback_bg": "#FFF8E8",
+      "url": "https://www.niagahoster.co.id",
+      "label": "Niagahoster",
+      "label_color": "#F4831F",
+      "cta": "Cek Harga →",
+      "platforms": ["done", "about"],
+      "active": true
+    },
+    {
+      "id": "ad_004",
+      "title": "Dukung MahiraClipper",
+      "description": "Software ini gratis. Bantu pengembangan dengan donasi kecil 🙏",
+      "image": "",
+      "image_fallback_emoji": "💚",
+      "image_fallback_bg": "#E8F4E8",
+      "url": "https://saweria.co",
+      "label": "Saweria",
+      "label_color": "#2D6B42",
+      "cta": "Donasi Sekarang →",
+      "platforms": ["splash", "done", "about"],
+      "active": true
+    }
+  ]
+}

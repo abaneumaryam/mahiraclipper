@@ -1,0 +1,1 @@
+"""MahiraClipper — AutoClipper Ceramah & Dakwah"""
